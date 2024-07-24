@@ -55,14 +55,16 @@ class ArgoWorkflowsIntegrationProvider extends AbstractGenericIntegrationProvide
 
 	@Override
 	Icon getIcon() {
-		return new Icon()
-	//	return new Icon(path:"argo-horizontal-color.png", darkPath: "argo-horizontal-color.png")
+		return new Icon(path:"argo-horizontal-color.png", darkPath: "argo-horizontal-color.png")
 	}
 
 	@Override
 	void refresh(AccountIntegration accountIntegration) {
 		log.info "Syncing Stuff"
-		accountIntegration.setServiceConfig("Testinstuff")
+		accountIntegration.setServiceConfig("Testinstuff, sync complete")
+		morpheus.async.accountIntegration.save(accountIntegration).subscribe().dispose()
+		sleep(30000)
+
 		log.debug "daily refresh run for ${accountIntegration}"
 	}
 
@@ -119,6 +121,7 @@ class ArgoWorkflowsIntegrationProvider extends AbstractGenericIntegrationProvide
 		//println "Integration Details: ${integration.Status}"
 		log.info "Integration Details: ${integration.objectRefs}"
 		log.info "Integration Details: ${integration.serviceConfig}"
+		log.info("Integration Details, plugin icon: ${this.getIcon().getPath()}")
 
 		// Define an object for storing the data retrieved from the Argo Workflows REST API
 		def HashMap<String, String> argoPayload = new HashMap<String, String>();
@@ -128,11 +131,12 @@ class ArgoWorkflowsIntegrationProvider extends AbstractGenericIntegrationProvide
 
 		log.info "Integration JSON: ${integrationJson}"
 
-		ViewModel<AccountIntegration> model = new ViewModel<>()
+		ViewModel<HashMap> model = new ViewModel<>()
 		
 		argoPayload.put("url", integrationJson["cm.plugin.argoWorkflowsAPI"])
 		argoPayload.put("name", integration["name"])
 		argoPayload.put("id", integrationJson["id"])
+		argoPayload.put("iconPath", this.getIcon().getPath())
 		log.info integration.getServiceConfig()
 		integration.setServiceConfig("demotest")
         model.object = argoPayload

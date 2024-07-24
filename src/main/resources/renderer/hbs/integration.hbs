@@ -1,522 +1,475 @@
-<div class="breadcrumbs-container">
-	<div class="container">					
-		<ul>
-			<li><a href="/admin/integrations">Integrations</a></li>
-			<li><span class="breadcrumb-current">{{name}}</span></li>
-		</ul>
-	</div>
-</div>
-<div class="main container" role="main" style="touch-action: manipulation; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-	<div class="status-message-container hidden">
-		<div class="status-message-content">
-			<div class="status-msg"></div>
-		</div>
-	</div>
-	<!-- Render Account Header-->
-	<div class="cm resource-detail">
-		<div class="cm-header-info resource-detail" data-cm-id="{{id}}">
-			<div class="pull-right hidden-xs">
-				<a href="/admin/integrations/{{id}}/edit" title="Edit" class="button" data-toggle="modal" data-target="#form-modal">
-					Edit
-				</a>
-				<button class="button button-red hidden-xs" data-toggle="modal" data-target="#delete-cm-modal">Delete</button>
-				<div class="btn-group">
-					<button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="min-button server-group-actions">Actions <span class="caret"></span></button>
-					<ul class="dropdown-menu">
-						<li>
-							<a href="/admin/integrations/{{id}}/refresh" data-remote="true" class="">Refresh</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-	<h1 class="">
-			<div class="pull-left">
-				<span class="statusIcon status-provisioned" title="ok"></span>
-			</div>
-		{{name}}
-	</h1>
-	<div class="big-logo-row">
-		<span class="big-logo">
-					<img src="/assets/plugin/argo-workflows/argo-horizontal-color.png" class="integration-logo">
-		</span>
-	</div>
-	<div class="header-meta-info">
-		<div class="item">
-			<strong>Host: </strong> {{url}}
-		</div>
-		
-			<div class="item">
-				<strong>Last Update: </strong>
-				<time datetime="2024-01-17 05:30:13">01/16/2024 11:30 PM</time>
-			</div>
-		<hr>
-	</div>
-</div>
-
-	</div>
-<div class="network-servers-detail">	
+<div class="network-servers-detail">
 	<div class="row">
 		<div class="row-container" role="tabpanel">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active">
-					<a href="#network-server-summary" aria-controls="network-server-summary" role="tab" data-toggle="tab" aria-expanded="true">
+					<a href="#network-server-summary" aria-controls="network-server-summary" role="tab"
+					   data-toggle="tab" aria-expanded="true">
 						Summary
 					</a>
 				</li>
 				<li role="presentation" class="">
-					<a href="#aci-tenant-records" aria-controls="aci-tenant-records" role="tab" data-toggle="tab" aria-expanded="false">Workflows</a>
-				</li>
-				<li role="presentation" class="">
-					<a href="#aci-tenant-records" aria-controls="aci-tenant-records" role="tab" data-toggle="tab" aria-expanded="false">Workflow Templates</a>
-				</li>
-				<li role="presentation" class="">
-					<a href="#aci-tenant-records" aria-controls="aci-tenant-records" role="tab" data-toggle="tab" aria-expanded="false">Cluster Workflow Templates</a>
+					<a href="#aci-tenant-records" aria-controls="aci-tenant-records" role="tab" data-toggle="tab"
+					   aria-expanded="false">Tenants</a>
 				</li>
 			</ul>
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="network-server-summary">
 					<div class="resource-detail">
-	<!-- network server info -->
-	<div class="info resource-content">
-		<div class="type-logo">
-			<img src="/assets/branding/140x40/aci-95ec3077c8d124df99e3f563d3420ee6.svg" title="Cisco ACI" class="logo">
-		</div>
-		<div class="info-columns">
-			<div class="info-columns-item">
-				<strong>Name:</strong>
-				ACI Cisco DevNet Sandbox
-			</div>
-			<div class="info-columns-item">
-				<strong>Type:</strong>
-				Cisco ACI
-			</div>
-			<div class="info-columns-item">
-				<strong>Date Created:</strong>
-				2021-09-13 20:36:57.0
-			</div>
-			<div class="info-columns-item">
-				<strong>Host:</strong>
-				https://sandboxapicdc.cisco.com
-			</div>
-			
-		</div>
-	</div>
-	<!-- service summary -->
-	
-		<hr>
-		<div class="title-container clearfix">
-	<h1 class="pull-left title">ACI</h1>
-</div>
-<div class="aci-inventory">
-	<hr>
-</div>
 
-	
-</div>
+						<!-- network server info -->
+						<div class="info resource-content">
+							<div class="type-logo">
+								<img src={{asset iconPath }} alt="Argo Workflow" title="Argo Workflow" class="logo"/>
+							</div>
+							<div class="info-columns">
+								<div class="info-columns-item">
+									<strong>Name:</strong>
+									Argo Workflow Sandbox
+								</div>
+								<div class="info-columns-item">
+									<strong>Type:</strong>
+									Argo Workflow
+								</div>
+								<div class="info-columns-item">
+									<strong>Date Created:</strong>
+									2021-09-13 20:36:57.0
+								</div>
+								<div class="info-columns-item">
+									<strong>Host:</strong>
+									{{url}}
+								</div>
+
+							</div>
+						</div>
+						<div class="aci-inventory">
+							<hr>
+						</div>
+					</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="aci-tenant-records">
 					<div class="title-container clearfix">
 						<h2 class="pull-left title">Tenants</h2>
 					</div>
 					<div class="aci-tenant-record-search">
-						<form action="/integration/aci/31/tenants" method="get" role="form" class="form-inline aci-tenant-record-search-form">
-						<div class="input-group searchBar">
-			<input type="text" class="form-control form-submit-on-change aci-phrase" name="phrase" value="" placeholder="Search" id="phrase">
-			<span class="input-group-btn">
-				<button class="btn btn-primary search-btn" type="button"><span class="glyphicon glyphicon-search"></span></button>
-			</span>
-		</div>
-		<!--actions-->
-		
-			
-				<a href="/integration/aci/31/tenant/create" class="button hidden-xs input-group pull-right add-aci-tenant-record-button" data-toggle="modal" data-target="#form-modal">+ Create Tenant</a>
-			
-		
-		<input type="hidden" name="_csrf" value="2066026a-b673-46f6-bbf0-773d8e3a4514">
-	</form>
-	<hr>
+						<form action="/integration/aci/31/tenants" method="get" role="form"
+							  class="form-inline aci-tenant-record-search-form">
+							<div class="input-group searchBar">
+								<input type="text" class="form-control form-submit-on-change aci-phrase" name="phrase"
+									   value="" placeholder="Search" id="phrase">
+								<span class="input-group-btn">
+									<button class="btn btn-primary search-btn" type="button"><span
+											class="glyphicon glyphicon-search"></span></button>
+								</span>
+							</div>
+							<!--actions-->
+
+
+							<a href="/integration/aci/31/tenant/create"
+							   class="button hidden-xs input-group pull-right add-aci-tenant-record-button"
+							   data-toggle="modal" data-target="#form-modal">+ Create Tenant</a>
+
+
+							<input type="hidden" name="_csrf" value="2066026a-b673-46f6-bbf0-773d8e3a4514">
+						</form>
+						<hr>
 					</div>
-					<div class="aci-tenant-record-list"><div class="aci-tenant-data" data-integration-id="150" data-replace="true" data-offset="" data-max="" data-phrase="" data-sort="" data-direction="">
-						<table class="table table-mid hidden-xs">
-							<thead>
-							<tr>
-								<th style="width:80px;">Status</th>
-								<th>Name</th>
-								<th>Description</th>
-								<th>Dn</th>
-								<th>UID</th>
-								<th style="width:100px;"></th>
-							</tr>
-							</thead>
-							<tbody>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>AMS-ACI-DEVNET</td>
-										<td></td>
-										<td>uni/tn-AMS-ACI-DEVNET</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24637" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>bk_10018</td>
-										<td>Tenant Created Using Ansible</td>
-										<td>uni/tn-bk_10018</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24666" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Brain-Board-sdwan</td>
-										<td></td>
-										<td>uni/tn-Brain-Board-sdwan</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24651" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>BrainBoard</td>
-										<td></td>
-										<td>uni/tn-BrainBoard</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24648" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>BU1</td>
-										<td>BU1 tenant was created via Terraform from a CI/CD Pipeline.</td>
-										<td>uni/tn-BU1</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24633" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>BU2</td>
-										<td>BU2 tenant was created via Terraform from a CI/CD Pipeline.</td>
-										<td>uni/tn-BU2</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24632" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Burak47</td>
-										<td></td>
-										<td>uni/tn-Burak47</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24645" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>common</td>
-										<td></td>
-										<td>uni/tn-common</td>
-										<td>0</td>
-										<td align="right" class="actions">
-											
-												<span class="btn-icon btn-icon-blank"></span>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Heroes</td>
-										<td></td>
-										<td>uni/tn-Heroes</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24660" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Hid100006532</td>
-										<td>A big telco tenant</td>
-										<td>uni/tn-Hid100006532</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24656" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Hid100006533</td>
-										<td>A leading provider of digital media services</td>
-										<td>uni/tn-Hid100006533</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24655" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>infra</td>
-										<td></td>
-										<td>uni/tn-infra</td>
-										<td>0</td>
-										<td align="right" class="actions">
-											
-												<span class="btn-icon btn-icon-blank"></span>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Jake_Tenant</td>
-										<td>Tenant Configured by Jake</td>
-										<td>uni/tn-Jake_Tenant</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24641" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>JK</td>
-										<td></td>
-										<td>uni/tn-JK</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24652" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>mgmt</td>
-										<td></td>
-										<td>uni/tn-mgmt</td>
-										<td>0</td>
-										<td align="right" class="actions">
-											
-												<span class="btn-icon btn-icon-blank"></span>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Mike_Tenant</td>
-										<td>Tenant Configured by Mike</td>
-										<td>uni/tn-Mike_Tenant</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24642" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>oneaciapp</td>
-										<td>Try ACI tool demo at https://oneaciapp.talapupa.com</td>
-										<td>uni/tn-oneaciapp</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24639" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>Rob_Tenant</td>
-										<td>Tenant Configured by Rob</td>
-										<td>uni/tn-Rob_Tenant</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24643" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>SH-automation-testing</td>
-										<td></td>
-										<td>uni/tn-SH-automation-testing</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24654" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-									<tr>
-										<td class="status status-indent"><span class="statusIcon status-provisioned " title="ok"></span></td>
-										<td>SS</td>
-										<td>SS tenant was created via Terraform from a CI/CD Pipeline.</td>
-										<td>uni/tn-SS</td>
-										<td>15374</td>
-										<td align="right" class="actions">
-											
-												<a href="/integration/aci/31/tenant/24634" data-method="delete" data-remote="true" title="Delete ACI Tenant" data-confirm="Are you sure you want to remove this ACI tenant from the APIC?" class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
-													<span class="btn-icon btn-icon-trashcan"></span>
-												</a>
-											
-										</td>
-									</tr>
-								
-							</tbody>
-						</table>
-						<div class="morpheus-paging">
-							<span class="currentStep">1</span><a href="/integration/aci/31/tenants?sort=&amp;direction=&amp;phrase=&amp;offset=25&amp;max=25" class="step">2</a><a href="/integration/aci/31/tenants?sort=&amp;direction=&amp;phrase=&amp;offset=25&amp;max=25" class="nextLink">»</a>
+					<div class="aci-tenant-record-list">
+						<div class="aci-tenant-data" data-integration-id="150" data-replace="true" data-offset=""
+							 data-max="" data-phrase="" data-sort="" data-direction="">
+							<table class="table table-mid hidden-xs">
+								<thead>
+								<tr>
+									<th style="width:80px;">Status</th>
+									<th>Name</th>
+									<th>Description</th>
+									<th>Dn</th>
+									<th>UID</th>
+									<th style="width:100px;"></th>
+								</tr>
+								</thead>
+								<tbody>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>AMS-ACI-DEVNET</td>
+									<td></td>
+									<td>uni/tn-AMS-ACI-DEVNET</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24637" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>bk_10018</td>
+									<td>Tenant Created Using Ansible</td>
+									<td>uni/tn-bk_10018</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24666" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Brain-Board-sdwan</td>
+									<td></td>
+									<td>uni/tn-Brain-Board-sdwan</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24651" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>BrainBoard</td>
+									<td></td>
+									<td>uni/tn-BrainBoard</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24648" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>BU1</td>
+									<td>BU1 tenant was created via Terraform from a CI/CD Pipeline.</td>
+									<td>uni/tn-BU1</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24633" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>BU2</td>
+									<td>BU2 tenant was created via Terraform from a CI/CD Pipeline.</td>
+									<td>uni/tn-BU2</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24632" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Burak47</td>
+									<td></td>
+									<td>uni/tn-Burak47</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24645" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>common</td>
+									<td></td>
+									<td>uni/tn-common</td>
+									<td>0</td>
+									<td align="right" class="actions">
+
+										<span class="btn-icon btn-icon-blank"></span>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Heroes</td>
+									<td></td>
+									<td>uni/tn-Heroes</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24660" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Hid100006532</td>
+									<td>A big telco tenant</td>
+									<td>uni/tn-Hid100006532</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24656" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Hid100006533</td>
+									<td>A leading provider of digital media services</td>
+									<td>uni/tn-Hid100006533</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24655" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>infra</td>
+									<td></td>
+									<td>uni/tn-infra</td>
+									<td>0</td>
+									<td align="right" class="actions">
+
+										<span class="btn-icon btn-icon-blank"></span>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Jake_Tenant</td>
+									<td>Tenant Configured by Jake</td>
+									<td>uni/tn-Jake_Tenant</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24641" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>JK</td>
+									<td></td>
+									<td>uni/tn-JK</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24652" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>mgmt</td>
+									<td></td>
+									<td>uni/tn-mgmt</td>
+									<td>0</td>
+									<td align="right" class="actions">
+
+										<span class="btn-icon btn-icon-blank"></span>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Mike_Tenant</td>
+									<td>Tenant Configured by Mike</td>
+									<td>uni/tn-Mike_Tenant</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24642" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>oneaciapp</td>
+									<td>Try ACI tool demo at https://oneaciapp.talapupa.com</td>
+									<td>uni/tn-oneaciapp</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24639" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>Rob_Tenant</td>
+									<td>Tenant Configured by Rob</td>
+									<td>uni/tn-Rob_Tenant</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24643" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>SH-automation-testing</td>
+									<td></td>
+									<td>uni/tn-SH-automation-testing</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24654" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								<tr>
+									<td class="status status-indent"><span class="statusIcon status-provisioned "
+																		   title="ok"></span></td>
+									<td>SS</td>
+									<td>SS tenant was created via Terraform from a CI/CD Pipeline.</td>
+									<td>uni/tn-SS</td>
+									<td>15374</td>
+									<td align="right" class="actions">
+
+										<a href="/integration/aci/31/tenant/24634" data-method="delete"
+										   data-remote="true" title="Delete ACI Tenant"
+										   data-confirm="Are you sure you want to remove this ACI tenant from the APIC?"
+										   class="btn btn-sm btn-link btn-link-icon tenant-record-delete">
+											<span class="btn-icon btn-icon-trashcan"></span>
+										</a>
+
+									</td>
+								</tr>
+
+								</tbody>
+							</table>
+							<div class="morpheus-paging">
+								<span class="currentStep">1</span><a
+									href="/integration/aci/31/tenants?sort=&amp;direction=&amp;phrase=&amp;offset=25&amp;max=25"
+									class="step">2</a><a
+									href="/integration/aci/31/tenants?sort=&amp;direction=&amp;phrase=&amp;offset=25&amp;max=25"
+									class="nextLink">»</a>
+							</div>
 						</div>
 					</div>
-					</div>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 </div>
-</div>
-		<!--create modal-->
-		<!--delete modal-->
-		<div class="modal fade" tabindex="-1" role="dialog" id="delete-cm-modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true"><svg class="close-icon"><use xlink:href="/assets/icons.svg#close-window"></use></svg></span>
-						</button>
-						<h4 class="modal-title">Delete Integration?</h4>
-					</div>
-					<div class="modal-body">
-						
-						<form action="/admin/integrations/{{id}}" method="post" role="form" class="form-horizontal delete-cm-form" data-remote="true"><input type="hidden" name="_method" value="DELETE" id="_method">
-							<p>Are you sure you want to remove this integration?</p>
-							<input type="hidden" name="_csrf" value="ac5d6b9b-bce1-4d44-ad3f-53f40d58cff7">
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-						<button type="button" class="button button-red cm-delete-submit-button" data-loading-text="Deleting..." data-submit="true" data-auto-reset="false">Delete</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--add obj modal-->
-		<div class="modal fade" tabindex="-1" role="dialog" id="new-service-now-obj-ref-modal">
-			<div class="modal-dialog">
-				<div class="modal-content"></div>
-			</div>
-		</div>
-	
-	
-				<!-- reusable modals -->
-				<div class="modal fade" tabindex="-1" role="dialog" id="form-modal" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content"></div>
-					</div>
-				</div>
-				<div class="modal fade" tabindex="-1" role="dialog" id="form-modal-md" aria-hidden="true">
-					<div class="modal-dialog modal-md">
-						<div class="modal-content"></div>
-					</div>
-				</div>
-				<div class="modal fade" tabindex="-1" role="dialog" id="form-modal-lg" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content"></div>
-					</div>
-				</div>
-				<div class="modal fade" tabindex="-1" role="dialog" id="form-modal-xl" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-xlg">
-						<div class="modal-content"></div>
-					</div>
-				</div>
-				<div class="modal fade" tabindex="-1" role="dialog" id="form-modal-xxlg" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-xxlg">
-						<div class="modal-content"></div>
-					</div>
-				</div>
-				<div id="modal"></div>
-			</div>

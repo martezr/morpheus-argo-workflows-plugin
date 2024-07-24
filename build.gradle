@@ -1,33 +1,64 @@
-plugins {
-    id "com.bertramlabs.asset-pipeline" version "3.3.2"
-    id "com.github.johnrengelman.plugin-shadow" version "2.0.3"
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://nexus.bertramlabs.com/content/repositories/snapshots" }
+        maven { url "https://nexus.bertramlabs.com/content/repositories/releases" }
+        maven { url "https://nexus.bertramlabs.com/content/repositories/publicReleases" }
+    }
+    dependencies {
+        classpath "com.github.johnrengelman:shadow:8.1.1"
+        classpath "com.morpheusdata:morpheus-plugin-gradle:$morphPluginGradleVersion"
+        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:$assetPipelineVersion"
+    }
 }
+
 
 apply plugin: 'java'
 apply plugin: 'groovy'
-apply plugin: 'maven-publish'
+apply plugin: 'idea'
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'asset-pipeline'
+apply plugin: 'com.morpheusdata.morpheus-plugin-gradle'
 
-group = 'com.morpheusdata'
-version = '0.0.1'
 
-sourceCompatibility = '1.11'
-targetCompatibility = '1.11'
-
+group = 'com.morpheus.test'
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
+java {
+    sourceCompatibility = JavaVersion.toVersion('1.11')
+    targetCompatibility = JavaVersion.toVersion('1.11')
+}
+
 repositories {
+    mavenLocal()
     mavenCentral()
+    maven { url "https://nexus.bertramlabs.com/content/repositories/snapshots" }
+    maven { url "https://nexus.bertramlabs.com/content/repositories/releases" }
+    maven { url "https://nexus.bertramlabs.com/content/repositories/publicReleases" }
+}
+
+configurations {
+    provided
 }
 
 dependencies {
-    compileOnly 'com.morpheusdata:morpheus-plugin-api:1.0.6'
-    compileOnly 'org.codehaus.groovy:groovy-all:2.5.6'
-    compileOnly 'io.reactivex.rxjava3:rxjava:3.1.8'
-    compileOnly "org.slf4j:slf4j-api:1.7.26"
-    compileOnly "org.slf4j:slf4j-parent:1.7.26"
+    provided "com.morpheusdata:morpheus-plugin-api:$morpheusApiVersion"
+    
+    provided "org.codehaus.groovy:groovy-all:$groovyVersion"
+    implementation 'commons-beanutils:commons-beanutils:1.9.3'
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.slf4j:slf4j-parent:$slf4jVersion"
+    implementation 'commons-net:commons-net:3.6'
 }
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
 
 jar {
     manifest {
@@ -45,6 +76,10 @@ jar {
             'Plugin-Version': archiveVersion.get() // Get version defined in gradle
         )
     }
+}
+
+assets {
+    packagePlugin = false //leave this false for plugins
 }
 
 tasks.assemble.dependsOn tasks.shadowJar
