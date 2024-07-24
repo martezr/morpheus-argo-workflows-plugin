@@ -55,14 +55,16 @@ class ArgoWorkflowsIntegrationProvider extends AbstractGenericIntegrationProvide
 
 	@Override
 	Icon getIcon() {
-		// return new Icon()
 		return new Icon(path:"argo-horizontal-color.png", darkPath: "argo-horizontal-color.png")
 	}
 
 	@Override
 	void refresh(AccountIntegration accountIntegration) {
 		log.info "Syncing Stuff"
-		accountIntegration.setServiceConfig("Testinstuff")
+		accountIntegration.setServiceConfig("Testinstuff, sync complete")
+		morpheus.async.accountIntegration.save(accountIntegration).subscribe().dispose()
+		sleep(30000)
+
 		log.debug "daily refresh run for ${accountIntegration}"
 	}
 
